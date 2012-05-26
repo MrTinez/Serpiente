@@ -1,0 +1,58 @@
+#include"stdio.h"
+#include "MainFrame.h"
+#include <QApplication>
+#include <QPainter>
+#include <QTimer>
+
+
+MainFrame::MainFrame()
+{
+
+    setupUi(this); //Llama a ui_main (Ventana)
+   
+   RaphaelJoy = NULL;
+
+	if(!RaphaelJoy) 
+	{ 
+	  RaphaelJoy = new Joystick(); 
+	  if(RaphaelJoy->init() == false)
+	  { 
+               printf("\nJoystick not detected"); exit(1);  
+          }
+	RaphaelJoy->GetStatus(js);
+	printf("\n%d %d %d %d   X   %d %d %d %d   X   %d %d   X   %d %d %d %d ",js.x,js.y,js.z,js.i,   js.i1,js.i2,js.i3,js.i4,  js.i5,js.i6,    js.i7,js.i8,js.i9,js.i10 );
+	}
+
+    // Timer-Events
+    Ticker = new QTimer(this);
+    connect(Ticker,   SIGNAL(timeout()),       SLOT(slot_Ticker()));
+    Ticker->start( 0.01 );
+
+}
+
+MainFrame::~MainFrame()
+{
+}
+
+void MainFrame::slot_Ticker()
+{
+	if(!RaphaelJoy) 
+	{ 
+	  RaphaelJoy = new Joystick(); 
+	  if(RaphaelJoy->init() == false)
+	  { 
+               printf("\nJoystick not detected"); exit(1);  
+          }
+	}
+
+	RaphaelJoy->GetStatus(js);
+	printf("\n%d %d %d %d   X   %d %d %d %d   X   %d %d   X   %d %d %d %d ",js.x,js.y,js.z,js.i,   js.i1,js.i2,js.i3,js.i4,  js.i5,js.i6,    js.i7,js.i8,js.i9,js.i10 );
+
+        char buff[50];
+	sprintf(buff,"%d",js.x);
+
+       m_Label1->setText(QString(buff));
+
+}
+
+
