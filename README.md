@@ -1,0 +1,9 @@
+Serpiente
+=========
+
+Repositorio para el proyecto de la Serpiente Robot de la Universidad Marista de Guadalajara.
+
+Alfredo Martínez Heredia 
+
+
+Mayo 2012
