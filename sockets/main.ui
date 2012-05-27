@@ -53,6 +53,29 @@
      <string>Mandar</string>
     </property>
    </widget>
+   <widget class="QLineEdit" name="text_mensaje">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>90</y>
+      <width>231</width>
+      <height>28</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>90</y>
+      <width>111</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Mandar Texto:</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>

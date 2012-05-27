@@ -20,8 +20,11 @@ Socket::~Socket()
 
 void Socket::conectar()
 {
-	char  * data = "1\n";
+	QString qString1 = text_mensaje->text();
+	QByteArray byteArray = qString1.toUtf8();
+	char * data =  byteArray.data();
 	char * dataread;
+	printf("Evento");
 	printf(data);
 	sock = new QTcpSocket(this);
 	sock->connectToHost("192.168.1.16",10001);
